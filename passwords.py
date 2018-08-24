@@ -3,6 +3,9 @@ import fire
 import math
 import sys
 
+if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+    raise Exception("Python version is %. Must be using at least Python 3.6." % sys.version_info)
+
 def run(passwords=10,length=3,wordlist="list.txt",exclude="exclude.txt"):
     words=list(set((a[:len(a)-1]
               for a in open(wordlist).readlines())).difference(
